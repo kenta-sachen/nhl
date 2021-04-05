@@ -1,0 +1,28 @@
+# Read in files
+
+setwd('/Users/kenta/Desktop/Performance Analytics/Hockey Data')
+team_info <- read.csv('team_info.csv')
+player_info <- read.csv('player_info.csv')
+game <- read.csv('game.csv')
+game_team_stats <- read.csv('game_teams_stats.csv')
+game_skater_stats <- read.csv('game_skater_stats.csv')
+game_team_stats <- read.csv('game_teams_stats.csv')
+game_shifts <- read.csv('game_shifts.csv')
+game_scratches <- read.csv('game_scratches.csv')
+game_plays <- read.csv('game_plays.csv')
+game_plays_players <- read.csv('game_plays_players.csv')
+game_penalties <- read.csv('game_penalties.csv')
+game_officials <- read.csv('game_officials.csv')
+game_goals <- read.csv('game_goals.csv')
+game_goalie_stats <- read.csv('game_goalie_stats.csv')
+
+# Create dataset that has player shift data
+
+player_shifts <- merge(game_shifts, player_info)
+# this dataset ties player names to shift start/end times for each game
+
+plays <- merge(game_plays, game_plays_players)
+# this dataset ties player names to each play in each game
+
+game_stats <- merge(player_info, game_skater_stats)
+# this dataset ties player names to game stats (time on ice, goals, assists, shots)
